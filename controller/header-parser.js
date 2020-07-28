@@ -2,9 +2,9 @@ const headerParserRouter = require('express').Router();
 
 headerParserRouter.get('/', (req, res, next) => {
     let myHeader = req.headers;
-	/*console.log(myHeader);*/
+	  //console.log(myHeader);
     req.head = {
-        ipaddress: myHeader.host,
+        ipaddress: myHeader['x-forwarded-for'],
         language: myHeader['accept-language'],
         software: myHeader['user-agent']
     };
